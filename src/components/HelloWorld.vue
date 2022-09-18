@@ -64,6 +64,7 @@
           >
             {{ eco.text }}
           </a>
+          <submit-button name="Submit" @submit="submitForm"></submit-button>
         </v-row>
       </v-col>
     </v-row>
@@ -72,10 +73,10 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import SubmitButton from "./SubmitButton.vue";
 
 export default defineComponent({
   name: "HelloWorld",
-
   data() {
     return {
       ecosystem: [
@@ -126,5 +127,11 @@ export default defineComponent({
       ],
     };
   },
+  methods: {
+    submitForm: () => {
+      alert("Form submitted");
+    },
+  },
+  components: { SubmitButton },
 });
 </script>
