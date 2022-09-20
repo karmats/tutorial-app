@@ -1,5 +1,5 @@
 <template>
-  <button type="submit" @click="$emit('submit')">{{ name }}</button>
+  <v-btn type="submit" @click="$emit('submit')">{{ name }}</v-btn>
 </template>
 
 <script lang="ts" setup>
