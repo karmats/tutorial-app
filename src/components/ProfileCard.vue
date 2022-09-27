@@ -1,7 +1,10 @@
 <template>
   <v-card class="mx-auto" max-width="434" tile>
     <v-avatar color="grey" size="150" rounded="0">
-      <v-img :src="userData?.avatar_url"></v-img>
+      <v-img
+        :src="userData?.avatar_url"
+        :alt="'Avatar for ' + userData?.name"
+      ></v-img>
     </v-avatar>
     <v-list-item
       :title="userData?.name"
@@ -10,19 +13,15 @@
   </v-card>
 </template>
 <script lang="ts" setup>
+import { getProfileByUserName } from "@/apis/github.api";
+import type { GitHubUser } from "@/models/github-user";
 import { watchEffect, ref } from "vue";
-const { userName } = defineProps<{ userName: string }>();
 
-const userData = ref<{
-  name: string;
-  company: string;
-  avatar_url: string;
-} | null>(null);
+const { userName } = defineProps<{ userName: string }>();
+const userData = ref<GitHubUser | null>(null);
 
 watchEffect(async () => {
-  const result = await fetch(`https://api.github.com/users/${userName}`).then(
-    (r) => r.json()
-  );
+  const result = await getProfileByUserName(userName);
   userData.value = result;
 });
 </script>

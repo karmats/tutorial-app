@@ -7,6 +7,7 @@
           title="Home"
           value="home"
           to="/"
+          exact
         >
         </v-list-item>
         <v-list-item
@@ -14,6 +15,7 @@
           title="About"
           value="about"
           to="/about"
+          exact
         >
         </v-list-item>
       </v-list>
