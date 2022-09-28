@@ -17,19 +17,19 @@ vi.mock("@/apis/github.api", () => ({
 }));
 
 describe("ProfileCard", () => {
-  it("renders properly", async () => {
+  it("renders properly", () => {
     const userName = "user";
-    const { getByLabelText } = await render(ProfileCard, {
+    const { findByAltText } = render(ProfileCard, {
       props: { userName },
-      global: {
+      /*global: {
         plugins: [
           createVuetify({
             components,
             directives,
           }),
         ],
-      },
+      },*/
     });
-    expect(getByLabelText(`Avatar for ${userName}`)).toBeDefined();
+    expect(findByAltText(`Avatar for ${userName}`)).toBeDefined();
   });
 });

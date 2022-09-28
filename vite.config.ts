@@ -17,12 +17,4 @@ export default defineConfig({
       port: 3001,
     },
   },
-  test: {
-    deps: {
-      inline: ["vuetify"],
-    },
-    globals: true,
-    environment: "jsdom",
-    coverage: { provider: "c8" },
-  },
 });

@@ -15,12 +15,12 @@
 <script lang="ts" setup>
 import { getProfileByUserName } from "@/apis/github.api";
 import type { GitHubUser } from "@/models/github-user";
-import { watchEffect, ref } from "vue";
+import { ref, onMounted } from "vue";
 
 const { userName } = defineProps<{ userName: string }>();
 const userData = ref<GitHubUser | null>(null);
 
-watchEffect(async () => {
+onMounted(async () => {
   const result = await getProfileByUserName(userName);
   userData.value = result;
 });

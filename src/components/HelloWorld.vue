@@ -24,7 +24,7 @@
 
         <v-row justify="center">
           <a
-            v-for="(next, i) in whatsNext"
+            v-for="(next, i) in data.whatsNext"
             :key="i"
             :href="next.href"
             class="subheading mx-3"
@@ -40,7 +40,7 @@
 
         <v-row justify="center">
           <a
-            v-for="(link, i) in importantLinks"
+            v-for="(link, i) in data.importantLinks"
             :key="i"
             :href="link.href"
             class="subheading mx-3"
@@ -56,7 +56,7 @@
 
         <v-row justify="center">
           <a
-            v-for="(eco, i) in ecosystem"
+            v-for="(eco, i) in data.ecosystem"
             :key="i"
             :href="eco.href"
             class="subheading mx-3"
@@ -71,67 +71,60 @@
   </v-container>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script lang="ts" setup>
+import { reactive } from "vue";
 import SubmitButton from "./SubmitButton.vue";
 
-export default defineComponent({
-  name: "HelloWorld",
-  data() {
-    return {
-      ecosystem: [
-        {
-          text: "vuetify-loader",
-          href: "https://github.com/vuetifyjs/vuetify-loader",
-        },
-        {
-          text: "github",
-          href: "https://github.com/vuetifyjs/vuetify",
-        },
-        {
-          text: "awesome-vuetify",
-          href: "https://github.com/vuetifyjs/awesome-vuetify",
-        },
-      ],
-      importantLinks: [
-        {
-          text: "Chat",
-          href: "https://community.vuetifyjs.com",
-        },
-        {
-          text: "Made with Vuetify",
-          href: "https://madewithvuejs.com/vuetify",
-        },
-        {
-          text: "Twitter",
-          href: "https://twitter.com/vuetifyjs",
-        },
-        {
-          text: "Articles",
-          href: "https://medium.com/vuetify",
-        },
-      ],
-      whatsNext: [
-        {
-          text: "Explore components",
-          href: "https://vuetifyjs.com",
-        },
-        {
-          text: "Roadmap",
-          href: "https://vuetifyjs.com/en/introduction/roadmap/",
-        },
-        {
-          text: "Frequently Asked Questions",
-          href: "https://vuetifyjs.com/getting-started/frequently-asked-questions",
-        },
-      ],
-    };
-  },
-  methods: {
-    submitForm: () => {
-      alert("Form submitted");
+const data = reactive({
+  ecosystem: [
+    {
+      text: "vuetify-loader",
+      href: "https://github.com/vuetifyjs/vuetify-loader",
     },
-  },
-  components: { SubmitButton },
+    {
+      text: "github",
+      href: "https://github.com/vuetifyjs/vuetify",
+    },
+    {
+      text: "awesome-vuetify",
+      href: "https://github.com/vuetifyjs/awesome-vuetify",
+    },
+  ],
+  importantLinks: [
+    {
+      text: "Chat",
+      href: "https://community.vuetifyjs.com",
+    },
+    {
+      text: "Made with Vuetify",
+      href: "https://madewithvuejs.com/vuetify",
+    },
+    {
+      text: "Twitter",
+      href: "https://twitter.com/vuetifyjs",
+    },
+    {
+      text: "Articles",
+      href: "https://medium.com/vuetify",
+    },
+  ],
+  whatsNext: [
+    {
+      text: "Explore components",
+      href: "https://vuetifyjs.com",
+    },
+    {
+      text: "Roadmap",
+      href: "https://vuetifyjs.com/en/introduction/roadmap/",
+    },
+    {
+      text: "Frequently Asked Questions",
+      href: "https://vuetifyjs.com/getting-started/frequently-asked-questions",
+    },
+  ],
 });
+
+const submitForm = () => {
+  alert("Form submitted");
+};
 </script>

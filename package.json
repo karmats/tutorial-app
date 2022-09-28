@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "build": "run-p type-check build-only",
-    "test:unit": "vitest --environment jsdom --coverage",
+    "test:unit": "vitest --coverage",
     "test:e2e": "start-server-and-test preview http://localhost:4173/ 'cypress open --e2e'",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "build-only": "vite build",

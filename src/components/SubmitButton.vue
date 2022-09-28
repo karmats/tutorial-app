@@ -3,6 +3,6 @@
 </template>
 
 <script lang="ts" setup>
-defineProps(["name"]);
-defineEmits(["submit"]);
+defineProps<{ name: string }>();
+defineEmits<{ (e: "submit"): void }>();
 </script>
