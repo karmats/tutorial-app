@@ -64,7 +64,6 @@
           >
             {{ eco.text }}
           </a>
-          <submit-button name="Submit" @submit="submitForm"></submit-button>
         </v-row>
       </v-col>
     </v-row>
@@ -73,7 +72,6 @@
 
 <script lang="ts" setup>
 import { reactive } from "vue";
-import SubmitButton from "./SubmitButton.vue";
 
 const data = reactive({
   ecosystem: [
@@ -123,8 +121,4 @@ const data = reactive({
     },
   ],
 });
-
-const submitForm = () => {
-  alert("Form submitted");
-};
 </script>

@@ -1,8 +1,10 @@
 <template>
-  <v-btn type="submit" @click="$emit('submit')">{{ name }}</v-btn>
+  <v-btn type="submit" :disabled="disabled" @click="$emit('submit')">{{
+    name
+  }}</v-btn>
 </template>
 
 <script lang="ts" setup>
-defineProps<{ name: string }>();
+defineProps<{ name: string; disabled?: boolean }>();
 defineEmits<{ (e: "submit"): void }>();
 </script>

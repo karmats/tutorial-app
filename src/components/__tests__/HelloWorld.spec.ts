@@ -18,16 +18,4 @@ describe("HelloWorld", () => {
     expect(getByText("Chat").tagName).toBe("A");
     expect(getByText("Twitter").tagName).toBe("A");
   });
-
-  it('alerts "Form submitted" on submit', () => {
-    window.alert = vi.fn();
-    const alertSpy = vi.spyOn(window, "alert");
-
-    const { getByText } = render(HelloWorld);
-    const submitButton = getByText("Submit");
-
-    submitButton.click();
-
-    expect(alertSpy).toHaveBeenCalledWith("Form submitted");
-  });
 });

@@ -6,11 +6,11 @@ export default defineConfig({
   ...viteConfig,
   plugins: [
     vue({
-      template: {
+      /*template: {
         compilerOptions: {
           isCustomElement: (tag) => tag.startsWith("v-"),
         },
-      },
+      },*/
     }),
   ],
   test: {
