@@ -1,12 +1,7 @@
-import { describe, it, expect, vi } from "vitest";
-
-import { render } from "@testing-library/vue";
 import ProfileCard from "../ProfileCard.vue";
-import { createVuetify } from "vuetify";
-import * as components from "vuetify/components";
-import * as directives from "vuetify/directives";
 import type { GitHubUser } from "@/models/github-user";
 import { renderWithVuetify } from "./test.utils";
+import { render } from "@testing-library/vue";
 
 // Mocks
 vi.mock("@/apis/github.api", () => ({
@@ -24,12 +19,17 @@ describe("ProfileCard", () => {
   });
   it("renders properly", async () => {
     const userName = "user";
-    const { findByLabelText, findByAltText } = renderWithVuetify(ProfileCard, {
-      props: { userName },
-    });
+    const { findByLabelText, findByText, findByTitle, findByAltText } = renderWithVuetify(
+      ProfileCard,
+      {
+        props: { userName },
+      }
+    );
 
     const imageAltText = `Avatar for ${userName}`;
-    expect(await findByLabelText(imageAltText)).not.toBeNull();
-    // expect(await findByAltText(imageAltText)).not.toBeNull();
+    expect(await findByLabelText(imageAltText)).toBeInTheDocument();
+    // expect(await findByAltText(imageAltText)).toBeInTheDocument();
+    expect(await findByText(userName)).toBeInTheDocument();
+    // expect(await findByTitle(userName)).toBeInTheDocument();
   });
 });

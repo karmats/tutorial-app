@@ -1,20 +1,20 @@
-import { render } from "@testing-library/vue";
 import SubmitButton from "../SubmitButton.vue";
+import { renderWithVuetify } from "./test.utils";
 
 describe("SubmitButton", () => {
   it("renders properly", () => {
     const name = "Hello";
-    const { getByText } = render(SubmitButton, {
+    const { getByText } = renderWithVuetify(SubmitButton, {
       props: {
         name,
       },
     });
-    expect(getByText(name)).toBeDefined();
+    expect(getByText(name)).toBeInTheDocument();
   });
 
   it("emits submit event on click", () => {
     const name = "Button";
-    const { getByText, emitted } = render(SubmitButton, {
+    const { getByText, emitted } = renderWithVuetify(SubmitButton, {
       props: {
         name,
       },
@@ -23,6 +23,6 @@ describe("SubmitButton", () => {
     const button = getByText(name);
     button.click();
 
-    expect(emitted("submit")).toBeTruthy();
+    expect(emitted().submit).toHaveLength(1);
   });
 });
