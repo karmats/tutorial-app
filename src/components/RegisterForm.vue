@@ -44,7 +44,7 @@
 import type { RegisterUser } from "@/models/register-user";
 import { reactive, ref } from "vue";
 
-defineEmits<(e: "formSubmitted", user: RegisterUser) => void>();
+defineEmits<{ (e: "formSubmitted", user: RegisterUser): void }>();
 
 const valid = ref(false);
 const userData = reactive<RegisterUser>({

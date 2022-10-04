@@ -17,11 +17,11 @@ import { getProfileByUserName } from "@/apis/github.api";
 import type { GitHubUser } from "@/models/github-user";
 import { ref, onMounted } from "vue";
 
-const { userName } = defineProps<{ userName: string }>();
+const props = defineProps<{ userName: string }>();
 const userData = ref<GitHubUser | null>(null);
 
 onMounted(async () => {
-  const result = await getProfileByUserName(userName);
+  const result = await getProfileByUserName(props.userName);
   userData.value = result;
 });
 </script>

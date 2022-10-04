@@ -1,7 +1,6 @@
 import ProfileCard from "../ProfileCard.vue";
 import type { GitHubUser } from "@/models/github-user";
 import { renderWithVuetify } from "./test.utils";
-import { render } from "@testing-library/vue";
 
 // Mocks
 vi.mock("@/apis/github.api", () => ({
@@ -19,12 +18,10 @@ describe("ProfileCard", () => {
   });
   it("renders properly", async () => {
     const userName = "user";
-    const { findByLabelText, findByText, findByTitle, findByAltText } = renderWithVuetify(
-      ProfileCard,
-      {
+    const { findByLabelText, findByText, findByTitle, findByAltText } =
+      renderWithVuetify(ProfileCard, {
         props: { userName },
-      }
-    );
+      });
 
     const imageAltText = `Avatar for ${userName}`;
     expect(await findByLabelText(imageAltText)).toBeInTheDocument();
