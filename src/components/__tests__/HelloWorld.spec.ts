@@ -1,5 +1,3 @@
-import { describe, it, expect } from "vitest";
-
 import HelloWorld from "../HelloWorld.vue";
 import { renderWithVuetify } from "./test.utils";
 
@@ -7,7 +5,7 @@ describe("HelloWorld", () => {
   it("renders properly", () => {
     const { getByText } = renderWithVuetify(HelloWorld);
 
-    expect(getByText("Welcome to Vuetify 3 Beta")).toBeDefined();
+    expect(getByText("Welcome to Vuetify 3 Beta")).toBeInTheDocument();
   });
 
   it("renders important links", () => {

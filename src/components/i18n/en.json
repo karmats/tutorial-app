@@ -1,0 +1,9 @@
+{
+  "first-name": "First name",
+  "last-name": "Last name",
+  "email": "E-mail",
+  "email-required": "E-mail is required",
+  "email-valid": "E-mail must be valid",
+  "name-required": "Name is required",
+  "name-valid": "Name must be less than 10 characters"
+}

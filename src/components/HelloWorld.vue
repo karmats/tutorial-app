@@ -7,7 +7,7 @@
 
       <v-col class="mb-4">
         <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to Vuetify 3 Beta
+          {{ t("hello") }}
         </h1>
 
         <p class="subheading font-weight-regular">
@@ -72,7 +72,9 @@
 
 <script lang="ts" setup>
 import { reactive } from "vue";
+import { useI18n } from "vue-i18n";
 
+const { t } = useI18n();
 const data = reactive({
   ecosystem: [
     {

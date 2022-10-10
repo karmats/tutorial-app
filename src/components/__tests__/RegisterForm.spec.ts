@@ -1,5 +1,5 @@
-import { fireEvent } from "@testing-library/vue";
 import RegisterForm from "../RegisterForm.vue";
+import { fireEvent } from "@testing-library/vue";
 import { renderWithVuetify } from "./test.utils";
 
 describe("RegisterForm", () => {
