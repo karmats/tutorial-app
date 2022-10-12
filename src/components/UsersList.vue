@@ -38,10 +38,10 @@
   </v-table>
 </template>
 <script lang="ts" setup>
-import { getUsers } from "@/apis/github.api";
 import type { MessagesSchema } from "@/i18n/messages.model";
-import type { GitHubUser } from "@/models/github-user";
-import { onMounted, ref, computed } from "vue";
+import { useGithubStore } from "@/stores/github";
+import { storeToRefs } from "pinia";
+import { onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 
 // Props and emits
@@ -49,22 +49,13 @@ defineEmits<(e: "userSelected", name: string) => void>();
 
 const { t } = useI18n<[MessagesSchema]>();
 
-const users = ref<GitHubUser[]>([]);
-const refreshUsers = async (since = randomUserId.value) => {
-  const result = await getUsers(since);
-  users.value = result;
-};
-onMounted(() => {
-  refreshUsers(1);
-});
+const store = useGithubStore();
+const { users, page } = storeToRefs(store);
+const { loadUsers, paginate } = store;
 
-const page = ref(1);
-const randomUserId = computed(
-  () => page.value * Math.floor(Math.random() * 1000)
-);
-const paginate = () => {
-  refreshUsers();
-};
+onMounted(() => {
+  loadUsers(1);
+});
 </script>
 <style scoped>
 .width-20-percent {
