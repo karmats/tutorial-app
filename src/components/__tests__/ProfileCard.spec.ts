@@ -6,6 +6,8 @@ import { renderWithVuetify } from "./test.utils";
 vi.mock("@/apis/github.api", () => ({
   getProfileByUserName: (userName: string) =>
     Promise.resolve<GitHubUser>({
+      id: 1,
+      login: userName,
       name: userName,
       company: "Test company",
       avatar_url: "https://some-url.com/avatar",
@@ -18,10 +20,9 @@ describe("ProfileCard", () => {
   });
   it("renders properly", async () => {
     const userName = "user";
-    const { findByLabelText, findByText, findByTitle, findByAltText } =
-      renderWithVuetify(ProfileCard, {
-        props: { userName },
-      });
+    const { findByLabelText, findByText } = renderWithVuetify(ProfileCard, {
+      props: { userName },
+    });
 
     const imageAltText = `Avatar for ${userName}`;
     expect(await findByLabelText(imageAltText)).toBeInTheDocument();

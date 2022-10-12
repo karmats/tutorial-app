@@ -8,7 +8,7 @@
             v-model="userData.firstName"
             :rules="nameRules"
             :counter="10"
-            :label="t('first-name')"
+            :label="t('register-form.first-name')"
             required
           ></v-text-field>
         </v-col>
@@ -18,7 +18,7 @@
             v-model="userData.lastName"
             :rules="nameRules"
             :counter="10"
-            :label="t('last-name')"
+            :label="t('register-form.last-name')"
             required
           ></v-text-field>
         </v-col>
@@ -27,7 +27,7 @@
           <v-text-field
             v-model="userData.email"
             :rules="emailRules"
-            :label="t('email')"
+            :label="t('register-form.email')"
             required
           ></v-text-field>
         </v-col>
@@ -44,19 +44,12 @@
 <script lang="ts" setup>
 import { reactive, ref } from "vue";
 import type { RegisterUser } from "@/models/register-user";
-import en from "./i18n/en.json";
-import sv from "./i18n/sv.json";
 import { useI18n } from "vue-i18n";
+import type { MessagesSchema, SupportedLocales } from "@/i18n/messages.model";
 
 defineEmits<{ (e: "formSubmitted", user: RegisterUser): void }>();
 
-const { t } = useI18n({
-  useScope: "global",
-  messages: {
-    sv,
-    en,
-  },
-});
+const { t } = useI18n<[MessagesSchema], SupportedLocales>();
 const valid = ref(false);
 const userData = reactive<RegisterUser>({
   firstName: "",
@@ -65,11 +58,11 @@ const userData = reactive<RegisterUser>({
 });
 
 const nameRules = ref([
-  (v: string) => !!v || t("name-required"),
-  (v: string) => v.length <= 10 || t("name-valid"),
+  (v: string) => !!v || t("register-form.name-required"),
+  (v: string) => v.length <= 10 || t("register-form.name-valid"),
 ]);
 const emailRules = ref([
-  (v: string) => !!v || t("email-required"),
-  (v: string) => /.+@.+/.test(v) || t("email-valid"),
+  (v: string) => !!v || t("register-form.email-required"),
+  (v: string) => /.+@.+/.test(v) || t("register-form.email-valid"),
 ]);
 </script>

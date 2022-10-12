@@ -4,8 +4,9 @@ import { createI18n } from "vue-i18n";
 import { createVuetify } from "vuetify";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
-import en from "@/i18n/en.json";
-import sv from "@/i18n/sv.json";
+import en from "@/locales/en.json";
+import sv from "@/locales/sv.json";
+import type { MessagesSchema, SupportedLocales } from "@/i18n/messages.model";
 
 export const renderWithVuetify = (
   component: Component,
@@ -20,7 +21,7 @@ export const renderWithVuetify = (
           components,
           directives,
         }),
-        createI18n({
+        createI18n<[MessagesSchema], SupportedLocales>({
           legacy: false,
           locale: "en",
           availableLocales: ["en", "sv"],

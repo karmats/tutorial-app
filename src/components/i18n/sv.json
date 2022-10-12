@@ -1,9 +1,0 @@
-{
-  "first-name": "Förnamn",
-  "last-name": "Efternamn",
-  "email": "E-mail",
-  "email-required": "E-mail är ett måste",
-  "email-valid": "E-mail måste vara giltig",
-  "name-required": "Namn är ett måste",
-  "name-valid": "Namn måste vara mindre än 10 bokstäver"
-}
