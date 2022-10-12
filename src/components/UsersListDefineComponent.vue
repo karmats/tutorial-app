@@ -37,34 +37,40 @@
     </tfoot>
   </v-table>
 </template>
-<script lang="ts" setup>
+<script lang="ts">
 import { getUsers } from "@/apis/github.api";
 import type { MessagesSchema } from "@/i18n/messages.model";
 import type { GitHubUser } from "@/models/github-user";
-import { onMounted, ref, computed } from "vue";
+import { ref, defineComponent } from "vue";
 import { useI18n } from "vue-i18n";
 
-// Props and emits
-defineEmits<(e: "userSelected", name: string) => void>();
+export default defineComponent({
+  setup() {
+    const { t } = useI18n<[MessagesSchema]>();
+    const users = ref<GitHubUser[]>([]);
+    const page = ref(1);
 
-const { t } = useI18n<[MessagesSchema]>();
-
-const users = ref<GitHubUser[]>([]);
-const refreshUsers = async (since = randomUserId.value) => {
-  const result = await getUsers(since);
-  users.value = result;
-};
-onMounted(() => {
-  refreshUsers(1);
+    return { t, users, page };
+  },
+  emits: ["userSelected"],
+  computed: {
+    randomUserId() {
+      return this.page * Math.floor(Math.random() * 1000);
+    },
+  },
+  mounted() {
+    this.refreshUsers(1);
+  },
+  methods: {
+    async refreshUsers(since?: number) {
+      const result = await getUsers(since || this.randomUserId);
+      this.users = result;
+    },
+    paginate() {
+      this.refreshUsers();
+    },
+  },
 });
-
-const page = ref(1);
-const randomUserId = computed(
-  () => page.value * Math.floor(Math.random() * 1000)
-);
-const paginate = () => {
-  refreshUsers();
-};
 </script>
 <style scoped>
 .width-20-percent {

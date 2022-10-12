@@ -15,9 +15,8 @@ vi.mock("@/apis/github.api", () => ({
 }));
 
 describe("ProfileCard", () => {
-  afterEach(() => {
-    vi.resetAllMocks();
-  });
+  afterEach(vi.resetAllMocks);
+
   it("renders properly", async () => {
     const userName = "user";
     const { findByLabelText, findByText } = renderWithVuetify(ProfileCard, {
