@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 import type { GitHubUser } from "@/models/github-user";
 import { getUsers } from "@/apis/github.api";
 
-export const useGithubStore = defineStore("github", () => {
+export const useUsersStore = defineStore("users", () => {
   const users = ref<GitHubUser[]>([]);
   const loadUsers = async (since?: number) => {
     const response = await getUsers(since || Math.floor(Math.random() * 1000));

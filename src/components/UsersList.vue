@@ -39,7 +39,7 @@
 </template>
 <script lang="ts" setup>
 import type { MessagesSchema } from "@/i18n/messages.model";
-import { useGithubStore } from "@/stores/github";
+import { useUsersStore } from "@/stores/users";
 import { storeToRefs } from "pinia";
 import { onMounted } from "vue";
 import { useI18n } from "vue-i18n";
@@ -49,7 +49,7 @@ defineEmits<(e: "userSelected", name: string) => void>();
 
 const { t } = useI18n<[MessagesSchema]>();
 
-const store = useGithubStore();
+const store = useUsersStore();
 const { users, page } = storeToRefs(store);
 const { loadUsers, paginate } = store;
 
