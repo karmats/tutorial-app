@@ -29,7 +29,6 @@
           <v-pagination
             v-model="page"
             :length="6"
-            :next-aria-label="t('$vuetify.pagination.ariaLabel.next')"
             @update:model-value="paginate"
           ></v-pagination>
         </td>
