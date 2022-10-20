@@ -2,14 +2,15 @@
   <v-app>
     <v-layout>
       <v-app-bar color="blue-darken-2">
-        <v-row>
-          <v-col cols="10"></v-col>
-          <v-col cols="2">
-            <LocaleChanger />
-          </v-col>
-        </v-row>
+        <v-app-bar-nav-icon
+          variant="text"
+          @click.stop="drawer = !drawer"
+        ></v-app-bar-nav-icon>
+
+        <v-spacer />
+        <LocaleChanger />
       </v-app-bar>
-      <v-navigation-drawer color="blue-lighten-2" floating permanent>
+      <v-navigation-drawer color="blue-lighten-2" v-model="drawer" floating>
         <v-list density="compact" nav>
           <v-list-item
             prepend-icon="mdi-view-dashboard"
@@ -37,5 +38,8 @@
 </template>
 
 <script lang="ts" setup>
+import { ref } from "vue";
 import LocaleChanger from "./components/LocaleChanger.vue";
+
+const drawer = ref(false);
 </script>
