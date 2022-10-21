@@ -10,9 +10,9 @@
       <v-col cols="12">
         <UsersList @user-selected="changeUser" />
       </v-col>
-      <v-col cols="12">
+      <!-- <v-col cols="12">
         <UsersListDefineComponent @user-selected="changeUser" />
-      </v-col>
+      </v-col> -->
       <v-col cols="12">
         <RegisterForm @form-submitted="registerUser"></RegisterForm>
       </v-col>
@@ -24,7 +24,7 @@
 import ProfileCard from "@/components/ProfileCard.vue";
 import RegisterForm from "@/components/RegisterForm.vue";
 import UsersList from "@/components/UsersList.vue";
-import UsersListDefineComponent from "@/components/UsersListDefineComponent.vue";
+// import UsersListDefineComponent from "@/components/UsersListDefineComponent.vue";
 import type { MessagesSchema, SupportedLocales } from "@/i18n/messages.model";
 import type { RegisterUser } from "@/models/register-user";
 import { ref } from "vue";
