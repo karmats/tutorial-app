@@ -2,7 +2,7 @@
   <v-container>
     <h2 class="my-3">Buttons</h2>
     <div class="d-flex flex-row">
-      <v-btn>Default</v-btn>
+      <v-btn @click="handleDefaultClick">Default</v-btn>
       <v-btn variant="outlined">Outlined</v-btn>
       <v-btn variant="text">Text</v-btn>
       <v-btn variant="tonal">Tonal</v-btn>
@@ -42,6 +42,10 @@
 import { ref } from "vue";
 
 const check = ref(true);
+
+const handleDefaultClick = () => {
+  throw new Error("Lol, error :O");
+};
 </script>
 
 <style scoped>
