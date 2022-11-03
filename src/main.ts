@@ -34,7 +34,7 @@ const vuetify = createVuetify({
   locale: {
     adapter: createVueI18nAdapter({ i18n, useI18n }),
   },
-  blueprint: undefined,
+  blueprint: appva,
   theme: {
     defaultTheme: "light",
   },

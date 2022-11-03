@@ -10,7 +10,7 @@
     </div>
     <h2 class="mt-8 mb-3">Form controls</h2>
     <div class="d-flex flex-row">
-      <v-checkbox label="Checkbox"></v-checkbox>
+      <v-checkbox label="Checkbox" v-model="check"></v-checkbox>
       <v-text-field :counter="10" label="First name" required></v-text-field>
       <v-select
         label="Select"
@@ -38,7 +38,11 @@
   </v-container>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from "vue";
+
+const check = ref(true);
+</script>
 
 <style scoped>
 .d-flex {
