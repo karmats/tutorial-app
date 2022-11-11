@@ -17,6 +17,7 @@
   "dependencies": {
     "@sentry/tracing": "^7.17.4",
     "@sentry/vue": "^7.17.4",
+    "@vueuse/core": "^9.5.0",
     "pinia": "^2.0.23",
     "roboto-fontface": "*",
     "vue": "^3.2.41",

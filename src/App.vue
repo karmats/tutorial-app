@@ -7,22 +7,15 @@
           @click.stop="drawer = !drawer"
         ></v-app-bar-nav-icon>
 
-        <!-- <router-link to="/" class="d-inline-block ms-4 me-2">
-          <v-img
-            class="logo-img"
-            src="src/assets/mcss_logo.svg"
-            transition="scale-transition"
-            alt="Vuetify logo"
-          />
-        </router-link> -->
-
         <v-tabs class="hidden-sm-and-down">
           <v-tab to="/">Home</v-tab>
           <v-tab to="/about">About</v-tab>
           <v-tab to="/test">Test</v-tab>
         </v-tabs>
+
         <v-spacer />
 
+        <DarkThemeSwitch />
         <LocaleChanger />
       </v-app-bar>
       <v-navigation-drawer class="hidden-md-and-up" v-model="drawer" floating>
@@ -62,17 +55,13 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
+import DarkThemeSwitch from "./components/DarkThemeSwitch.vue";
 import LocaleChanger from "./components/LocaleChanger.vue";
 
 const drawer = ref(false);
 </script>
 
 <style scoped>
-/*.logo-img {
-  max-width: 148px;
-  max-height: 34px;
-  min-width: 132px;
-}*/
 .v-tabs {
   --v-tabs-height: 64px;
 }
