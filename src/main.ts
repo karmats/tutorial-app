@@ -1,21 +1,20 @@
 import "@mdi/font/css/materialdesignicons.css";
-import * as Sentry from "@sentry/vue";
-import { BrowserTracing } from "@sentry/tracing";
 import "vuetify/styles";
-import * as components from "vuetify/components";
-import * as directives from "vuetify/directives";
-import { appva } from "./blueprints/appva.blueprint";
-import App from "./App.vue";
+
+import { createPinia } from "pinia";
 import { createApp } from "vue";
 import { createI18n, useI18n } from "vue-i18n";
-import { createPinia } from "pinia";
 import { createVuetify } from "vuetify";
+import * as components from "vuetify/components";
+import * as directives from "vuetify/directives";
 import { createVueI18nAdapter } from "vuetify/locale/adapters/vue-i18n";
-import { loadFonts } from "./plugins/webfontloader";
-import sentry from "./plugins/sentry";
-import router from "./router";
-import sv from "./locales/sv.json";
+import App from "./App.vue";
+import { appva } from "./blueprints/appva.blueprint";
 import type { MessagesSchema } from "./i18n/messages.model";
+import sv from "./locales/sv.json";
+import sentry from "./plugins/sentry";
+import { loadFonts } from "./plugins/webfontloader";
+import router from "./router";
 
 loadFonts();
 
