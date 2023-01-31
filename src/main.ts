@@ -1,6 +1,9 @@
+import "@formkit/themes/genesis";
 import "@mdi/font/css/materialdesignicons.css";
 import "vuetify/styles";
 
+import { defaultConfig, plugin } from "@formkit/vue";
+import { en, sv } from "@formkit/i18n";
 import { createPinia } from "pinia";
 import { createApp } from "vue";
 import { createI18n, useI18n } from "vue-i18n";
@@ -11,7 +14,7 @@ import { createVueI18nAdapter } from "vuetify/locale/adapters/vue-i18n";
 import App from "./App.vue";
 import { appva } from "./blueprints/appva.blueprint";
 import type { MessagesSchema } from "./i18n/messages.model";
-import sv from "./locales/sv.json";
+import svMessages from "./locales/sv.json";
 import sentry from "./plugins/sentry";
 import { loadFonts } from "./plugins/webfontloader";
 import router from "./router";
@@ -23,7 +26,7 @@ const i18n = createI18n<[MessagesSchema], "sv", false>({
   locale: "sv",
   availableLocales: ["sv"],
   messages: {
-    sv,
+    sv: svMessages,
   },
 });
 
@@ -41,12 +44,22 @@ const vuetify = createVuetify({
   },
 });
 
+const formKit = plugin;
+
 const app = createApp(App);
 
 app.use(router);
 app.use(i18n);
 app.use(vuetify);
 app.use(pinia);
+app.use(
+  formKit,
+  defaultConfig({
+    theme: "genesis",
+    locales: { en, sv },
+    locale: "sv",
+  })
+);
 app.use(sentry, {
   dsn: "https://083806bfa899402b817cf7fe594028d9@o4504095737577472.ingest.sentry.io/4504095738757120",
   router,

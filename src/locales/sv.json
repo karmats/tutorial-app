@@ -15,6 +15,13 @@
     "header-avatar": "Avatar",
     "header-name": "Namn"
   },
+  "forms": {
+    "full-name": "Namn",
+    "full-name-placeholder": "Skriv hela ditt namn...",
+    "has-email": "Har e-mail?",
+    "email": "E-mail",
+    "email-enabled": "Finns email?"
+  },
   "$vuetify": {
     "pagination": {
       "ariaLabel": {

@@ -15,6 +15,13 @@
     "header-avatar": "Avatar",
     "header-name": "Name"
   },
+  "forms": {
+    "full-name": "Full name",
+    "full-name-placeholder": "Enter your name...",
+    "has-email": "Has email?",
+    "email": "Email",
+    "email-enabled": "Email enabled?"
+  },
   "$vuetify": {
     "pagination": {
       "ariaLabel": {

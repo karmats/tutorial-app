@@ -11,6 +11,7 @@
           <v-tab to="/">Home</v-tab>
           <v-tab to="/about">About</v-tab>
           <v-tab to="/test">Test</v-tab>
+          <v-tab to="/forms">Form lab</v-tab>
         </v-tabs>
 
         <v-spacer />
