@@ -20,7 +20,9 @@
     "full-name-placeholder": "Skriv hela ditt namn...",
     "has-email": "Har e-mail?",
     "email": "E-mail",
-    "email-enabled": "Finns email?"
+    "email-enabled": "Finns email?",
+    "favourite-fruit": "Favorit frukt",
+    "favourite-fruit-placeholder": "Välj din favvo frukt"
   },
   "$vuetify": {
     "pagination": {

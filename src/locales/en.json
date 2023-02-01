@@ -20,7 +20,9 @@
     "full-name-placeholder": "Enter your name...",
     "has-email": "Has email?",
     "email": "Email",
-    "email-enabled": "Email enabled?"
+    "email-enabled": "Email enabled?",
+    "favourite-fruit": "Favourite fruit",
+    "favourite-fruit-placeholder": "Choose your favourite"
   },
   "$vuetify": {
     "pagination": {

@@ -28,6 +28,14 @@ const schema = [
     label: t("forms.has-email"),
   },
   {
+    $formkit: "select",
+    name: "fruit",
+    label: t("forms.favourite-fruit"),
+    placeholder: t("forms.favourite-fruit-placeholder"),
+    options: ["🍒", "🍓", "🍉"],
+    validation: "required",
+  },
+  {
     $el: "p",
     children: [t("forms.email-enabled") + " ", "$hasEmail"],
   },
