@@ -3,6 +3,11 @@
 describe("My First Test", () => {
   it("visits the app root url", () => {
     cy.visit("/");
-    cy.contains("h1", "You did it!");
+    cy.contains("h1", "Välkommen till Vuetify 3 Beta");
+  });
+
+  it("compares snapshots", () => {
+    cy.visit("/");
+    cy.compareSnapshot("home");
   });
 });

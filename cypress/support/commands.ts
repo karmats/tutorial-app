@@ -35,5 +35,9 @@
 //     }
 //   }
 // }
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const compareSnapshotCommand = require("cypress-visual-regression/dist/command");
+
+compareSnapshotCommand();
 
 export {};
