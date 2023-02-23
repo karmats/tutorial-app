@@ -24,6 +24,10 @@
     "favourite-fruit": "Favourite fruit",
     "favourite-fruit-placeholder": "Choose your favourite"
   },
+  "time-formatter": {
+    "today": "Today",
+    "yeseterday": "Yesterday"
+  },
   "$vuetify": {
     "pagination": {
       "ariaLabel": {

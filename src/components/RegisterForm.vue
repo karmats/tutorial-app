@@ -1,6 +1,6 @@
 <template>
+  <span>{{ t("hello") }} {{ time }}</span>
   <v-form v-model="valid" @submit.prevent="$emit('formSubmitted', userData)">
-    <span>{{ t("hello") }}</span>
     <v-container>
       <v-row>
         <v-col cols="12" md="4">
@@ -46,10 +46,12 @@ import { reactive, ref } from "vue";
 import type { RegisterUser } from "@/models/register-user";
 import { useI18n } from "vue-i18n";
 import type { MessagesSchema, SupportedLocales } from "@/i18n/messages.model";
+import { useTimeFormatter } from "@/composables/timeFormatter.composable";
 
 defineEmits<{ (e: "formSubmitted", user: RegisterUser): void }>();
 
 const { t } = useI18n<[MessagesSchema], SupportedLocales>();
+const { time } = useTimeFormatter(new Date());
 const valid = ref(false);
 const userData = reactive<RegisterUser>({
   firstName: "",

@@ -24,6 +24,10 @@
     "favourite-fruit": "Favorit frukt",
     "favourite-fruit-placeholder": "Välj din favvo frukt"
   },
+  "time-formatter": {
+    "today": "Idag",
+    "yeseterday": "Igår"
+  },
   "$vuetify": {
     "pagination": {
       "ariaLabel": {
