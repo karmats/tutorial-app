@@ -12,6 +12,7 @@
           <v-tab to="/about">About</v-tab>
           <v-tab to="/test">Test</v-tab>
           <v-tab to="/forms">Form lab</v-tab>
+          <v-tab to="/graphs">Graphs</v-tab>
         </v-tabs>
 
         <v-spacer />

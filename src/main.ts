@@ -1,6 +1,7 @@
 import "@formkit/themes/genesis";
 import "@mdi/font/css/materialdesignicons.css";
 import "vuetify/styles";
+import "billboard.js/dist/billboard.min.css";
 
 import { defaultConfig, plugin } from "@formkit/vue";
 import { en, sv } from "@formkit/i18n";
