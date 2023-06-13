@@ -8,6 +8,9 @@ export const appva: Blueprint = {
   defaults: {
     VAppBar: {
       color: "primary",
+      VBtn: {
+        color: "on-primary",
+      },
     },
     VAutocomplete: {
       variant: "filled",
