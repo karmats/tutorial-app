@@ -3,7 +3,7 @@
   "exclude": [],
   "compilerOptions": {
     "composite": true,
-    "lib": [],
-    "types": ["node", "jsdom", "@testing-library/jest-dom", "vitest/globals"]
+    "lib": ["dom"],
+    "types": ["node", "@testing-library/jest-dom", "vitest/globals"]
   }
 }
