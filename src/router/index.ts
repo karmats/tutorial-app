@@ -29,6 +29,11 @@ const router = createRouter({
       name: "graphs",
       component: () => import("../views/GraphView.vue"),
     },
+    {
+      path: "/apex",
+      name: "apex",
+      component: () => import("../views/ApexGraphView.vue"),
+    },
   ],
 });
 

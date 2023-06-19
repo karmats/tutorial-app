@@ -1,10 +1,10 @@
 import "@formkit/themes/genesis";
 import "@mdi/font/css/materialdesignicons.css";
+import "@/assets/billboard-appva.css";
 import "vuetify/styles";
-import "billboard.js/dist/billboard.min.css";
 
-import { defaultConfig, plugin } from "@formkit/vue";
 import { en, sv } from "@formkit/i18n";
+import { defaultConfig, plugin } from "@formkit/vue";
 import { createPinia } from "pinia";
 import { createApp } from "vue";
 import { createI18n, useI18n } from "vue-i18n";

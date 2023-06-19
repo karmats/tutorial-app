@@ -13,6 +13,7 @@
           <v-tab to="/test">Test</v-tab>
           <v-tab to="/forms">Form lab</v-tab>
           <v-tab to="/graphs">Graphs</v-tab>
+          <v-tab to="/apex">Apex Graphs</v-tab>
         </v-tabs>
 
         <v-spacer />
@@ -43,6 +44,30 @@
             title="Test"
             value="test"
             to="/test"
+            exact
+          >
+          </v-list-item>
+          <v-list-item
+            prepend-icon="mdi-file-document-outline"
+            title="Forms"
+            value="forms"
+            to="/forms"
+            exact
+          >
+          </v-list-item>
+          <v-list-item
+            prepend-icon="mdi-chart-bar"
+            title="Graphs"
+            value="graphs"
+            to="/graphs"
+            exact
+          >
+          </v-list-item>
+          <v-list-item
+            prepend-icon="mdi-chart-bell-curve-cumulative"
+            title="Apex graphs"
+            value="apex"
+            to="/apex"
             exact
           >
           </v-list-item>
