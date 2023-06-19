@@ -14,6 +14,7 @@
           <v-tab to="/forms">Form lab</v-tab>
           <v-tab to="/graphs">Graphs</v-tab>
           <v-tab to="/apex">Apex Graphs</v-tab>
+          <v-tab to="/chartjs">ChartJS Graphs</v-tab>
         </v-tabs>
 
         <v-spacer />
@@ -68,6 +69,14 @@
             title="Apex graphs"
             value="apex"
             to="/apex"
+            exact
+          >
+          </v-list-item>
+          <v-list-item
+            prepend-icon="mdi-chart-box-outline"
+            title="ChartJS graphs"
+            value="chartjs"
+            to="/chartjs"
             exact
           >
           </v-list-item>
