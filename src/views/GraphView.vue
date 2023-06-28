@@ -1,33 +1,75 @@
 <template>
-  <div id="barchart"></div>
+  <div class="d-flex flex-column pa-md-10">
+    <div id="barchart"></div>
+    <div id="linechart"></div>
+    <v-btn @click="updateData">Update data</v-btn>
+  </div>
 </template>
 
 <script setup lang="ts">
-import bb, { bar, type Chart } from "billboard.js";
-import { onMounted } from "vue";
-import { onUnmounted } from "vue";
+import bb, { bar, line, type Chart } from "billboard.js";
+import { onMounted, onUnmounted } from "vue";
 
-let chart: Chart;
+let barChart: Chart;
+let lineChart: Chart;
 
 onMounted(() => {
-  chart = bb.generate({
+  barChart = bb.generate({
     data: {
-      columns: [
-        ["data1", 30, 200, 100, 400, 150, 250],
-        ["data2", 130, 100, 140, 200, 150, 50],
-      ],
+      columns: [["data1", 30, 40, 45, 50, 49, 60, 70, 91]],
       type: bar(),
+    },
+    color: {
+      pattern: ["rgb(7, 128, 10)"],
     },
     bar: {
       width: {
         ratio: 0.5,
       },
     },
+    tooltip: {
+      grouped: false,
+    },
     bindto: "#barchart",
+  });
+  lineChart = bb.generate({
+    data: {
+      columns: [["data1", 30, 40, 45, 50, 49, 60, 70, 91]],
+      type: line(),
+    },
+    color: {
+      pattern: ["rgb(7, 128, 10)"],
+    },
+    bar: {
+      width: {
+        ratio: 0.5,
+      },
+    },
+    tooltip: {
+      grouped: false,
+    },
+    bindto: "#linechart",
   });
 });
 
 onUnmounted(() => {
-  chart.unload();
+  barChart.unload();
+  lineChart.unload();
 });
+
+const updateData = () => {
+  const newData = barChart
+    .data("data1")[0]
+    .values.map((d) =>
+      typeof d.value === "number"
+        ? d.value + Math.floor(Math.random() * 100)
+        : d
+    ) as number[];
+  barChart.load({
+    columns: [["data1", ...newData]],
+  });
+  lineChart.load({
+    columns: [["data1", ...newData]],
+  });
+};
 </script>
