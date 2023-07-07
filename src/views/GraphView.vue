@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import bb, { bar, line, type Chart } from "billboard.js";
+import { bb, bar, line, type Chart } from "billboard.js";
 import { onMounted, onUnmounted } from "vue";
 
 let barChart: Chart;
