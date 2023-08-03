@@ -12,6 +12,7 @@
           <v-tab to="/about">About</v-tab>
           <v-tab to="/test">Test</v-tab>
           <v-tab to="/forms">Form lab</v-tab>
+          <v-tab to="/iframe">IFrame</v-tab>
           <v-tab to="/graphs">Graphs</v-tab>
           <v-tab to="/apex">Apex Graphs</v-tab>
           <v-tab to="/chartjs">ChartJS Graphs</v-tab>
@@ -53,6 +54,14 @@
             title="Forms"
             value="forms"
             to="/forms"
+            exact
+          >
+          </v-list-item>
+          <v-list-item
+            prepend-icon="mdi-application-braces-outline"
+            title="IFrame"
+            value="iframe"
+            to="/iframe"
             exact
           >
           </v-list-item>

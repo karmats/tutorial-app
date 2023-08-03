@@ -25,6 +25,11 @@ const router = createRouter({
       component: () => import("../views/FormView.vue"),
     },
     {
+      path: "/iframe",
+      name: "iframe",
+      component: () => import("../views/IFrameView.vue"),
+    },
+    {
       path: "/graphs",
       name: "graphs",
       component: () => import("../views/GraphView.vue"),
