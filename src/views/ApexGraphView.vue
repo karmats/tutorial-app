@@ -1,17 +1,17 @@
 <template>
   <div class="d-flex flex-column pa-md-10">
-    <apex-charts
+    <apexchart
       type="bar"
       height="275"
       :options="options"
       :series="series"
-    ></apex-charts>
-    <apex-charts
+    ></apexchart>
+    <apexchart
       type="line"
       height="275"
       :options="options"
       :series="series"
-    ></apex-charts>
+    ></apexchart>
     <v-btn @click="updateData">Update chart</v-btn>
   </div>
 </template>
@@ -20,7 +20,6 @@
 import type { ApexOptions } from "apexcharts";
 import type { Ref } from "vue";
 import { getCurrentInstance, onMounted, ref, watch } from "vue";
-import ApexCharts from "vue3-apexcharts";
 
 const options: Ref<ApexOptions> = ref({
   chart: {
@@ -46,6 +45,9 @@ const options: Ref<ApexOptions> = ref({
 
   xaxis: {
     categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
+    tooltip: {
+      enabled: false,
+    },
   },
 });
 const series = ref([
