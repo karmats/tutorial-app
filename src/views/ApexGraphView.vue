@@ -27,10 +27,11 @@ const options: Ref<ApexOptions> = ref({
     id: "vuechart-example",
     width: "100%",
     height: 275,
+    fontFamily: "Roboto, sans-serif",
   },
   colors: ["#07800a", "#216fad"],
-  theme: {
-    mode: "light",
+  tooltip: {
+    cssClass: "tooltip",
   },
   responsive: [
     {
@@ -52,12 +53,16 @@ const series = ref([
     name: "series-1",
     data: [30, 40, 45, 50, 49, 60, 70, 91],
   },
+  {
+    name: "series-2",
+    data: [10, 20, 105, 40, 49, 50, 10, 67],
+  },
 ]);
 const updateData = () => {
   series.value = series.value.map((serie) => ({
     ...serie,
     data: serie.data.map((data) =>
-      typeof data === "number" ? data + Math.floor(Math.random() * 100) : data
+      typeof data === "number" ? data + Math.floor(Math.random() * 100) : data,
     ),
   }));
 };
@@ -65,15 +70,25 @@ onMounted(() => {
   const instance = getCurrentInstance();
   const vuetify = instance?.proxy?.$vuetify;
   if (vuetify?.theme) {
-    watch(vuetify?.theme, (updatedTheme) => {
+    watch(vuetify.theme, (updatedTheme) => {
       options.value = {
         ...options.value,
         theme: {
           mode: updatedTheme.current.dark ? "dark" : "light",
         },
       };
-      console.log("theme update");
     });
   }
 });
 </script>
+<style>
+.apexcharts-tooltip.tooltip.apexcharts-theme-light {
+  background: #ff0000;
+  border: 1px solid #ff0000;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  color: #373d3f;
+  font-size: 12px;
+  padding: 10px;
+}
+</style>
