@@ -44,28 +44,42 @@ const options: Ref<ApexOptions> = ref({
   ],
 
   xaxis: {
-    categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
+    type: "datetime",
+
     tooltip: {
       enabled: false,
     },
   },
 });
+const categories = [
+  new Date(1991, 0, 2),
+  new Date(1992, 0, 2),
+  new Date(1993, 0, 2),
+  new Date(1994, 0, 2),
+  new Date(1995, 0, 2),
+  new Date(1996, 0, 2),
+  new Date(1997, 0, 2),
+  new Date(1998, 0, 2),
+];
+const series1 = [30, 40, 45, 50, 49, 60, 70, 91];
+const series2 = [10, 20, 105, 40, 49, 50, 10, 67];
 const series = ref([
   {
     name: "series-1",
-    data: [30, 40, 45, 50, 49, 60, 70, 91],
+    data: categories.map((c, i) => ({ x: c, y: series1[i] })),
   },
   {
     name: "series-2",
-    data: [10, 20, 105, 40, 49, 50, 10, 67],
+    data: categories.map((c, i) => ({ x: c, y: series2[i] })),
   },
 ]);
 const updateData = () => {
   series.value = series.value.map((serie) => ({
     ...serie,
-    data: serie.data.map((data) =>
-      typeof data === "number" ? data + Math.floor(Math.random() * 100) : data,
-    ),
+    data: serie.data.map((data) => ({
+      x: data.x,
+      y: Number(data.y) + Math.floor(Math.random() * 100),
+    })),
   }));
 };
 onMounted(() => {
