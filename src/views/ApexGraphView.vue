@@ -22,30 +22,14 @@ import type { Ref } from "vue";
 import { getCurrentInstance, onMounted, ref, watch } from "vue";
 
 const categories = [
-  Intl.DateTimeFormat("sv", { year: "numeric", month: "short" }).format(
-    new Date(1991, 0, 2),
-  ),
-  Intl.DateTimeFormat("sv", { year: "numeric", month: "short" }).format(
-    new Date(1991, 6, 2),
-  ),
-  Intl.DateTimeFormat("sv", { year: "numeric", month: "short" }).format(
-    new Date(1992, 0, 2),
-  ),
-  Intl.DateTimeFormat("sv", { year: "numeric", month: "short" }).format(
-    new Date(1992, 6, 2),
-  ),
-  Intl.DateTimeFormat("sv", { year: "numeric", month: "short" }).format(
-    new Date(1993, 0, 2),
-  ),
-  Intl.DateTimeFormat("sv", { year: "numeric", month: "short" }).format(
-    new Date(1993, 6, 2),
-  ),
-  Intl.DateTimeFormat("sv", { year: "numeric", month: "short" }).format(
-    new Date(1994, 0, 2),
-  ),
-  Intl.DateTimeFormat("sv", { year: "numeric", month: "short" }).format(
-    new Date(1994, 6, 2),
-  ),
+  Intl.DateTimeFormat("sv", { year: "numeric" }).format(new Date(1991, 0, 2)),
+  Intl.DateTimeFormat("sv", { year: "numeric" }).format(new Date(1991, 6, 2)),
+  Intl.DateTimeFormat("sv", { year: "numeric" }).format(new Date(1992, 0, 2)),
+  Intl.DateTimeFormat("sv", { year: "numeric" }).format(new Date(1992, 6, 2)),
+  Intl.DateTimeFormat("sv", { year: "numeric" }).format(new Date(1993, 0, 2)),
+  Intl.DateTimeFormat("sv", { year: "numeric" }).format(new Date(1993, 6, 2)),
+  Intl.DateTimeFormat("sv", { year: "numeric" }).format(new Date(1994, 0, 2)),
+  Intl.DateTimeFormat("sv", { year: "numeric" }).format(new Date(1994, 6, 2)),
 ];
 const series1 = [30, 40, 45, 50, 49, 60, 70, 91];
 const series2 = [10, 20, 105, 40, 49, 50, 10, 67];
@@ -94,6 +78,10 @@ const options: Ref<ApexOptions> = ref({
     tooltip: {
       enabled: false,
     },
+    labels: {
+      datetimeUTC: false,
+    },
+    tickAmount: "dataPoints",
     categories,
   },
 });
