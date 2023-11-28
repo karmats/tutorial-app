@@ -20,6 +20,9 @@
 import type { ApexOptions } from "apexcharts";
 import type { Ref } from "vue";
 import { getCurrentInstance, onMounted, ref, watch } from "vue";
+import { useDisplay } from "vuetify";
+
+const { mdAndUp } = useDisplay();
 
 const categories = [
   Intl.DateTimeFormat("sv", { year: "numeric" }).format(new Date(1991, 0, 2)),
@@ -79,6 +82,7 @@ const options: Ref<ApexOptions> = ref({
       enabled: false,
     },
     labels: {
+      show: mdAndUp.value,
       datetimeUTC: false,
     },
     tickAmount: "dataPoints",
